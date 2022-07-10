@@ -13,4 +13,6 @@ if __name__ == '__main__':
     )
 
     # bot = nonebot.get_bot()
-    nonebot.run(host='127.0.0.1', port=8082)
+
+    # 这里的ip要用0.0.0.0,不然不能和外部进行连接
+    nonebot.run(host='0.0.0.0', port=8082)

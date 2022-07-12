@@ -12,7 +12,12 @@ if __name__ == '__main__':
         'plugins.weather'
     )
 
-    # bot = nonebot.get_bot()
+    # 加载我的生日插件
+    nonebot.load_plugins(
+        path.join(path.dirname(__file__), 'plugins','Birthday'),
+        'plugins.Birthday'
+    )
+
 
     # 这里的ip要用0.0.0.0,不然不能和外部进行连接
     nonebot.run(host='0.0.0.0', port=8082)

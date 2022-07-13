@@ -5,7 +5,7 @@ import re
 
 # on_command 装饰器将函数声明为一个命令处理器
 @on_command('birthday', aliases=('生日'))
-async def weather(session: CommandSession):
+async def birthday(session: CommandSession):
     msg = "查询任务列表：birthday_search\n" \
           "新增提醒任务：birthday_add\n" \
           "删除提醒任务：birthday_del"
@@ -14,7 +14,7 @@ async def weather(session: CommandSession):
 
 
 @on_command('birthday_search',)
-async def weather(session: CommandSession):
+async def birthday_search(session: CommandSession):
     # 取得消息的内容，并且去掉首尾的空白符
     req_msg = session.current_arg_text.strip()
 
@@ -26,7 +26,7 @@ async def weather(session: CommandSession):
 
 
 @on_command('birthday_add')
-async def weather(session: CommandSession):
+async def birthday_add(session: CommandSession):
     # 取得消息的内容，并且去掉首尾的空白符
     req_msg = session.current_arg_text.strip()
 
@@ -59,7 +59,7 @@ async def weather(session: CommandSession):
 
 
 @on_command('birthday_del')
-async def weather(session: CommandSession):
+async def birthday_del(session: CommandSession):
     # 取得消息的内容，并且去掉首尾的空白符
     task_id = session.current_arg_text.strip()
     user_id = session.event.user_id

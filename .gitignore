@@ -153,3 +153,5 @@ cython_debug/
 .DS_Store
 */*/.DS_Store
 plugins/Birthday/db/birthday.db
+Config/*.json
+!Config/example.json #后面的优先级更高

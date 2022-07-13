@@ -1,15 +1,29 @@
+import random
 import re
+import string
+import requests
+from requests_toolbelt.multipart.encoder import MultipartEncoder
 
-# 进行日期匹配
-reg = "^(1[0-2]|[1-9])-(3[01]|[12][0-9]|[1-9])*:.*$"
+import json
+url = "http://127.0.0.1:80/api/birthdays/task_add"
 
-s = '6-29:lwl'
-ans = re.search(reg, s)
 
-if ans != None:
-    pattern2 = "\d+"
-    date = re.findall(pattern2, s)
-    to_user = s.split(':')[1]
-    print(date, to_user)
+data = { 'username': 'lwl',
+     'birthday_time': '4-11',
+     'hour': '9',
+     'minute': '13',
+     'to_user': 'ssd',
+     'email': '2892211452',
+     'task_type': 'qqbot'
+}
 
-print(ans)
+
+
+m = MultipartEncoder(
+        fields=data
+    )
+
+headers = {'Content-Type': m.content_type, 'accept': 'application/json'}
+
+rsp = requests.post(url,  data=m, headers=headers)
+print(rsp.text)

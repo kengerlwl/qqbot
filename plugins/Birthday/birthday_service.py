@@ -19,46 +19,12 @@ class UserService():
         task_creaat(task_id, date, to_user)
         user_task_creat(self.user_id, task_id)
 
-        conf = get_config()
-        url = url = "http://"+conf['task_server']['host']+':' +conf['task_server']['port']+"/api/birthdays/task_add"
 
-        data = {'username': str(self.user_id),
-                'birthday_time': date,
-                'hour': '0',
-                'minute': '0',
-                'to_user': str(to_user),
-                'email': str(self.user_id),
-                'task_id':str(task_id),
-                'task_type': 'qqbot'
-                }
-
-        m = MultipartEncoder(
-            fields=data
-        )
-
-        headers = {'Content-Type': m.content_type, 'accept': 'application/json'}
-
-        rsp = requests.post(url, data=m, headers=headers)
-        # print(rsp.text)
 
     def task_delete(self, task_id):
         task_delete(task_id)
         user_task_delete(task_id)
 
-        conf = get_config()
-        url = "http://"+conf['task_server']['host']+':' +conf['task_server']['port']+"/api/birthdays/task_delete"
-        data = {'username': str(self.user_id),
-                'task_id':str(task_id),
-                'task_type': 'qqbot'
-                }
-
-        m = MultipartEncoder(
-            fields=data
-        )
-        headers = {'Content-Type': m.content_type, 'accept': 'application/json'}
-
-        rsp = requests.post(url, data=m, headers=headers)
-        print(rsp)
 
     def all_task_delete(self):
         tasks = user_task_search(self.user_id)

@@ -7,3 +7,5 @@ plugins/Birthday/db/birthday.db
 Config/*.json
 !Config/example.json #后面的优先级更高
 .idea
+front/dist
+front/node_modules

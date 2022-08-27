@@ -183,7 +183,7 @@ export default {
 
     async getBirthdayByUsername() {
       axios
-        .get('http://127.0.0.1/2892211452')
+        .get(this.baseURL + this.birthdayURL + this.username)
         .then((response) => {
           // console.log(response);
           // console.log(response.data);

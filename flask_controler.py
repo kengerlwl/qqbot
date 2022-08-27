@@ -168,5 +168,5 @@ if __name__ == '__main__':
     init_app()  # 进行初始化配置
 
     app.logger.setLevel(logging.DEBUG)
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='0.0.0.0', port=82, debug=True)
     exit()

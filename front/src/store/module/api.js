@@ -1,6 +1,6 @@
 const api = {
   state: {
-    baseURL: "http://127.0.0.1:80/",
+    baseURL: "http://kengerbirthday.xyz:82/",
     port: "5000",
     birthdayURL: "",
     taskAddURL: "task_add",

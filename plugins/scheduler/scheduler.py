@@ -7,7 +7,7 @@ from common import *
 
 
 # 定时执行任务
-@nonebot.scheduler.scheduled_job('cron', hour='*', minute="55", second="0" )
+@nonebot.scheduler.scheduled_job('cron', hour='8', minute="0", second="0" )
 async def birthday_check():
     bot = nonebot.get_bot()
     now = datetime.now(pytz.timezone('Asia/Shanghai'))

@@ -140,3 +140,47 @@ servers:
 
 
 ## nonebot添加定时任务
+```
+from datetime import datetime
+
+import nonebot
+import pytz
+from aiocqhttp.exceptions import Error as CQHttpError
+
+
+# 定时执行任务
+@nonebot.scheduler.scheduled_job('cron', hour='*', minute="*", second="*" )
+async def _():
+    bot = nonebot.get_bot()
+    now = datetime.now(pytz.timezone('Asia/Shanghai'))
+    try:
+
+        # 获取所有的好友
+        # users = await bot.get_friend_list()
+        # {'nickname': '风格', 'remark': '风格', 'user_id': 1499427353},]
+
+
+        # 获取所有群
+        # groups = await bot.get_group_list()
+        #[{'group_create_time': 0, 'group_id': 519467053, 'group_level': 0, 'group_name': '行者、kengerbot', x_member_count': 200, 'member_count': 2}]
+
+        # groups = await bot.get_
+        # print(groups)
+
+        await bot.send_private_msg(user_id=2892211452, message="test")
+    except CQHttpError:
+        pass
+```
+
+
+
+
+# 关于项目架构
+
+qq机器人端，应该作为通讯工具，以及添加任务的查询工具。
+
+计划
+- 增删改查：应该在网页端实现，因为比较便于操作
+- 通知提醒功能，应该在qq客户端实现
+- 提醒时间统一定在上午8点
+

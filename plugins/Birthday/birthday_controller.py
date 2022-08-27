@@ -7,8 +7,8 @@ import re
 @on_command('birthday', aliases=('生日'))
 async def birthday(session: CommandSession):
     msg = "查询任务列表：birthday_search\n" \
-          "新增提醒任务：birthday_add\n" \
-          "删除提醒任务：birthday_del"
+          "新增提醒任务：birthday_add 6-29:lwl\n" \
+          "删除提醒任务：birthday_del task_id"
     await session.send(msg)
 
 
@@ -21,8 +21,10 @@ async def birthday_search(session: CommandSession):
     user_id = session.event.user_id
     user = UserService(user_id)
     ans = user.get_all_tasks()
-    for i in ans:
-        await session.send(str(i))
+    for task_id, task_time, to_user in ans:
+        # print(i, i[0])
+        task_des = "任务id:{}\n 生日的时间:{}\n对方是:{}".format(task_id, task_time, to_user)
+        await session.send(task_des)
 
 
 @on_command('birthday_add')

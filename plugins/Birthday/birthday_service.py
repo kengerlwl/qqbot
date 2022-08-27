@@ -14,10 +14,16 @@ class UserService():
         self.user_id =user_id
 
     def task_add(self, date, to_user):
+        """
+        :param date:  时间
+        :param to_user: 当天生日的人
+        :return:  返回生成任务的id
+        """
 
         task_id = uuid.uuid1()
         task_creaat(task_id, date, to_user)
         user_task_creat(self.user_id, task_id)
+        return str(task_id)
 
 
 

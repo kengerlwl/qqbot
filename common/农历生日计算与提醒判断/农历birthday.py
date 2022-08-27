@@ -5,11 +5,14 @@ from borax.calendars.lunardate import LunarDate
 import requests
 from Config import *
 
+conf = get_config()
+
 
 def send_msg_to_qq(msg, qq_num):
     conf = get_config()
-    host = conf['task_server']['host']
-    url = "http://{}:5700/send_private_msg?user_id={}&message={}".format(host, qq_num, msg)
+    host = conf['qq_server']['host']
+    port = conf['qq_server']['port']
+    url = "http://{}:{}/send_private_msg?user_id={}&message={}".format(host, port, qq_num, msg)
     requests.get(url=url)
 
 

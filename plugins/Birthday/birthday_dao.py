@@ -54,6 +54,25 @@ def user_creat(user_id, nickname, remark):
     conn.commit()
     conn.close()
 
+def get_all_user():
+    conn = get_con()
+    c = conn.cursor()
+
+    # 为了解决字符串插入问题，建议全部改成这种格式化
+    ex_sql = "SELECT user_id,nickname,remark FROM user"
+    ex_sql = ex_sql
+
+    cursor = c.execute(ex_sql)
+    users = []
+    for i in cursor:
+        # print(i)
+        users.append(i)
+
+    conn.commit()
+    conn.close()
+
+    return users
+
 def task_creaat(task_id, date, to_user):
     conn = get_con()
     c = conn.cursor()

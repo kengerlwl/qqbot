@@ -7,7 +7,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-.idea
+
 # C extensions
 *.so
 
@@ -139,5 +139,3 @@ dmypy.json
 .pytype/
 
 # End of https://www.toptal.com/developers/gitignore/api/python
-.DS_Store
-.env.dev
